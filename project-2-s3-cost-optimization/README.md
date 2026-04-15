@@ -27,25 +27,25 @@ These practices are essential in Cloud Operations to control costs while maintai
 
 ## Screenshots
 
-**1. S3 Bucket Created**
+### 1. S3 Bucket Created
 ![S3 Bucket List](screenshots/01-s3-bucket-list.png)
 
-**2. Files Uploaded to Bucket**
+### 2. Files Uploaded to Bucket
 ![Files Uploaded](screenshots/02-files-uploaded.png)
 
-**3. Bucket Versioning Enabled**
+### 3. Bucket Versioning Enabled
 ![Versioning Enabled](screenshots/03-versioning-enabled.png)
 
-**4. Object Versions Visible**
+### 4. Object Versions Visible
 ![File Versions](screenshots/04-bucket-file-versions.png)
 
-**5. Lifecycle Rule Configuration**
+### 5. Lifecycle Rule Configuration
 ![Lifecycle Rule Config](screenshots/05-lifecycle-rule-config.png)
 
-**6. Lifecycle Rule Listed**
-![Lifecycle Rule Summary](screenshots/06-lifecycle-rule-listed.png)
+### 6. Lifecycle Rules Listed
+![Lifecycle Rules Summary](screenshots/06-lifecycle-rules-listed.png)
 
-**7. AWS Budgets Dashboard**
+### 7. AWS Budgets Dashboard
 
 ![Budgets Dashboard](screenshots/07-budgets-dashboard.png)
 
