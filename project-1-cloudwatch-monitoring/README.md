@@ -22,13 +22,15 @@ This type of setup is commonly used in Cloud Operations to proactively detect pe
 
 ## Screenshots
 
-**1. EC2 Instance Running**
+### 1. EC2 Instance Running
 ![EC2 Instance](screenshots/01-ec2-instance.png)
 
-**2. CloudWatch Alarm Setup (CPU > 70%)**
+### 2. CloudWatch Alarm Setup (CPU > 70%)
+
+
 ![Alarm Setup](screenshots/02-alarm-setup.png)
 
-**3. CloudWatch Alarm Graph**
+### 3. CloudWatch Alarm Graph
 ![Alarm Graph](screenshots/03-alarm-graph.png)
 
 ## Key Learnings
