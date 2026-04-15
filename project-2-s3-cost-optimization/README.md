@@ -20,6 +20,9 @@ These practices are essential in Cloud Operations to control costs while maintai
 - Created an S3 bucket and uploaded test files
 - Enabled bucket versioning to protect against accidental deletion/overwrites
 - Configured a lifecycle rule to transition current versions to S3 Standard-IA after 30 days
+- Configured two lifecycle rules:
+  - Transition current versions to S3 Standard-IA after 30 days
+  - Transition noncurrent versions to S3 Glacier after 90 days
 - Set up an AWS Budget with an 80% alert threshold to monitor costs
 
 ## Screenshots
@@ -43,6 +46,7 @@ These practices are essential in Cloud Operations to control costs while maintai
 ![Lifecycle Rule Summary](screenshots/06-lifecycle-rule-listed.png)
 
 **7. AWS Budgets Dashboard**
+
 ![Budgets Dashboard](screenshots/07-budgets-dashboard.png)
 
 ## Key Learnings
