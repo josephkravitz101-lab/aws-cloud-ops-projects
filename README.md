@@ -4,6 +4,14 @@ This repository contains hands-on AWS projects I built while transitioning from 
 
 All projects focus on practical skills relevant to Cloud Ops roles: monitoring & alerting, cost optimization, secure networking, and infrastructure management.
 
+## AWS Certification
+
+**AWS Certified Cloud Practitioner (CLF-C02)** — April 2026
+
+[![AWS Certified Cloud Practitioner](https://www.credly.com/badges/edce3c9b-1890-4ba3-8a6d-bd98d6f4f99a/public_url)
+
+[Download Official PDF Certificate](certs/AWS-Cloud-Practitioner-CLF-C02.pdf)
+
 ## Projects
 
 ### Project 1: CloudWatch Monitoring & Alerting
@@ -34,5 +42,7 @@ All projects focus on practical skills relevant to Cloud Ops roles: monitoring &
 - Former Front-End Web Developer with strong technical foundation
 
 Actively building Cloud Operations skills through hands-on AWS projects and transitioning into Cloud Ops / Infrastructure Operations roles in NYC.
+
+
 
 Last updated: April 2026
