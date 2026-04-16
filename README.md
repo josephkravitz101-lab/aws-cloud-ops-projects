@@ -10,8 +10,6 @@ All projects focus on practical skills relevant to Cloud Ops roles: monitoring &
 
 [![AWS Certified Cloud Practitioner](https://img.shields.io/badge/AWS%20Certified-Cloud%20Practitioner-FF9900?style=for-the-badge&logo=amazonaws&logoColor=white)](https://www.credly.com/badges/edce3c9b-1890-4ba3-8a6d-bd98d6f4f99a/public_url)
 
-[Download Official PDF Certificate](certs/AWS-Cloud-Practitioner-CLF-C02.pdf)
-
 ## Projects
 
 ### Project 1: CloudWatch Monitoring & Alerting
