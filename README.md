@@ -12,10 +12,9 @@ All projects focus on practical skills relevant to Cloud Ops roles: monitoring &
 
 ## Projects
 
-### Project 1: CloudWatch Monitoring & Alerting
-- Launched an EC2 instance and configured CloudWatch alarms for CPU utilization
-- Set up notifications via SNS
-- [View Project →](./project-1-cloudwatch-monitoring)
+### Project 1: Terraform CloudWatch Monitoring & Alerting (with VPC)
+A complete Infrastructure as Code example using Terraform. Deploys a secure VPC, EC2 instance, and automated CloudWatch alerting with SNS notifications.
+- [View Project →](./project-1-terraform-cloudwatch-monitoring)
 
 ### Project 2: S3 Cost Optimization with Lifecycle Rules & Budgets
 - Enabled S3 bucket versioning for data protection
