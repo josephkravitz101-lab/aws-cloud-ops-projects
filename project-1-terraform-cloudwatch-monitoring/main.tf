@@ -112,7 +112,7 @@ resource "aws_sns_topic" "cpu_alarm_topic" {
 resource "aws_sns_topic_subscription" "email_subscription" {
   topic_arn = aws_sns_topic.cpu_alarm_topic.arn
   protocol  = "email"
-  endpoint  = "your-email@example.com"   # ← CHANGE TO YOUR EMAIL
+  endpoint  = "josephkravitz101@gmail.com"   # EMAIL
 }
 
 resource "aws_cloudwatch_metric_alarm" "cpu_high" {
