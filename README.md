@@ -12,10 +12,12 @@ All projects focus on practical skills relevant to Cloud Ops roles: monitoring &
 
 ## Projects
 
+### Terraform Projects (Infrastructure as Code)
 ### Project 1: Terraform CloudWatch Monitoring & Alerting (with VPC)
 A complete Infrastructure as Code example using Terraform. Deploys a secure VPC, EC2 instance, and automated CloudWatch alerting with SNS notifications.
 - [View Project →](./project-1-terraform-cloudwatch-monitoring)
 
+### Console-Based Projects (Foundational AWS Skills)
 ### Project 2: S3 Cost Optimization with Lifecycle Rules & Budgets
 - Enabled S3 bucket versioning for data protection
 - Created lifecycle rules to automatically transition objects to cheaper storage classes (Standard-IA after 30 days, Glacier after 90 days)
