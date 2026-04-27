@@ -62,7 +62,7 @@ This project demonstrates **Infrastructure as Code (IaC)** by provisioning a com
 ## View Terraform Code
 - [terraform.tf](terraform.tf) — Terraform version and provider configuration
 - [main.tf](main.tf) — Main resources (VPC, EC2, Security Group, CloudWatch, SNS)
-- [main.tf](variables.tf) — Private values (email address)
+- [variables.tf](variables.tf) — Private values (email address, etc)
 
 ## How to Deploy
 
