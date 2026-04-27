@@ -140,7 +140,7 @@ resource "aws_sns_topic" "cpu_alarm_topic" {
 resource "aws_sns_topic_subscription" "email_subscription" {
   topic_arn = aws_sns_topic.cpu_alarm_topic.arn
   protocol  = "email"
-  endpoint  = "testemailgit@gmail.com" # <--- CHANGE THIS!
+  endpoint  = var.alert_email
 
   depends_on = [aws_sns_topic.cpu_alarm_topic]
 }
