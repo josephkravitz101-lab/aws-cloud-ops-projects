@@ -11,6 +11,10 @@ jobs:
   terraform:
     name: 'Terraform CI'
     runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        working-directory: ./project-1-terraform-cloudwatch-monitoring
     
     steps:
     - name: Checkout
