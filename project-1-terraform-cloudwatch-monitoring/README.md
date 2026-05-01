@@ -59,13 +59,7 @@ This project demonstrates **Infrastructure as Code (IaC)** by provisioning a com
 ### 8. SNS Topic & Email Subscription
 ![SNS Topic](screenshots/08-sns-topic.png)
 
-## View Terraform Code
-- [terraform.tf](terraform.tf) — Terraform version and provider configuration
-- [main.tf](main.tf) — Main resources (VPC, EC2, Security Group, CloudWatch, SNS)
-- [variables.tf](variables.tf) — Private values (email address, etc)
-
 ## How to Deploy
-
 ```powershell
 terraform init
 terraform plan
