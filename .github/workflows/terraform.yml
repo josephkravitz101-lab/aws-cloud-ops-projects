@@ -37,4 +37,6 @@ jobs:
       env:
         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        TF_VAR_alert_email: ${{ secrets.TF_VAR_alert_email }}
+        TF_VAR_allowed_ip: ${{ secrets.TF_VAR_allowed_ip }}
       run: terraform plan -input=false
