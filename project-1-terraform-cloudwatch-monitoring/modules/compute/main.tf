@@ -1,7 +1,7 @@
 # Security Group
 resource "aws_security_group" "allow_ssh" {
-  name        = "allow_ssh"
-  vpc_id      = var.vpc_id
+  name   = "allow_ssh"
+  vpc_id = var.vpc_id
 
   ingress {
     from_port   = 22
@@ -22,9 +22,9 @@ resource "aws_security_group" "allow_ssh" {
 
 # EC2 Instance
 resource "aws_instance" "monitored_instance" {
-  ami           = var.ami_id
-  instance_type = var.instance_type
-  subnet_id     = var.subnet_id
+  ami                    = var.ami_id
+  instance_type          = var.instance_type
+  subnet_id              = var.subnet_id
   vpc_security_group_ids = [aws_security_group.allow_ssh.id]
 
   tags = merge(var.common_tags, { Name = "monitored-instance" })

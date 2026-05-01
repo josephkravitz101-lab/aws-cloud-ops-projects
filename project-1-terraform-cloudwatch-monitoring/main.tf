@@ -29,6 +29,7 @@ locals {
     Purpose     = "complete-project"
   }
 }
+
 # =============================================
 # Networking Module
 # =============================================
@@ -46,7 +47,7 @@ module "compute" {
   # Wiring: Passing data from root/modules into the compute module
   vpc_id        = module.network.vpc_id
   subnet_id     = module.network.subnet_id
-  ami_id        = data.aws_ami.amazon_linux_2023.id  # <--- Connecting the root data source to the module
+  ami_id        = data.aws_ami.amazon_linux_2023.id # <--- Connecting the root data source to the module
   allowed_ip    = var.allowed_ip
   alert_email   = var.alert_email
   common_tags   = local.common_tags
