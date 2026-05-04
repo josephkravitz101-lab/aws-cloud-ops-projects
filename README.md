@@ -13,8 +13,8 @@ All projects focus on practical skills relevant to Cloud Ops roles: monitoring &
 ## Projects
 
 ### Terraform Projects (Infrastructure as Code)
-### Project 1: Terraform CloudWatch Monitoring & Alerting (with VPC)
-Built a professional-grade AWS architecture (VPC, EC2) with automated CloudWatch alerting. Implemented a robust GitHub Actions CI/CD pipeline to automate code validation, style enforcement, and infrastructure planning, ensuring production-ready standards.
+### Project 1: Terraform Elastic Infrastructure & Auto Scaling
+Engineered a resilient web infrastructure using Terraform, focusing on **automated elasticity**. Replaced static monitoring with **Target Tracking Scaling Policies** to maintain 50% average CPU utilization, optimizing costs and reliability. Implemented a robust GitHub Actions CI/CD pipeline to automate code validation, style enforcement, and infrastructure planning, ensuring production-ready standards.
 - [View Project →](./project-1-terraform-cloudwatch-monitoring)
 
 ### Console-Based Projects (Foundational AWS Skills)
