@@ -57,11 +57,6 @@ module "compute" {
 # =============================================
 # Outputs
 # =============================================
-output "ec2_public_ip" {
-  value       = module.compute.ec2_public_ip
-  description = "Public IP from the compute module"
-}
-
 output "sns_topic_arn" {
   value       = module.compute.sns_topic_arn
   description = "SNS Topic ARN from the compute module"
