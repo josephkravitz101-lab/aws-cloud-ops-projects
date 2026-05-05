@@ -14,7 +14,7 @@ jobs:
 
     defaults:
       run:
-        working-directory: ./project-1-terraform-cloudwatch-monitoring
+        working-directory: ./project-1-terraform-elastic-infrastructure
     
     steps:
     - name: Checkout
