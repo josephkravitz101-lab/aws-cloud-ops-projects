@@ -14,12 +14,11 @@ jobs:
   terraform:
     name: "Terraform Action"
     runs-on: ubuntu-latest
-    
-    # Ensure this points to your project folder if it's not in the root
-    # defaults:
-    #   run:
-    #     working-directory: ./project-1
 
+    defaults:
+      run:
+        working-directory: ./project-1-terraform-elastic-infrastructure
+    
     steps:
       - name: Checkout
         uses: actions/checkout@v4
