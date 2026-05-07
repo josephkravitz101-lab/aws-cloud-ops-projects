@@ -1,42 +1,29 @@
-name: 'Terraform CI'
+name: Terraform CI
 
 on:
   push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
-  workflow_dispatch:
-    
+    branches: [ main ]
+
+permissions:
+  id-token: write # CRITICAL for OIDC
+  contents: read  # Allow reading the code
+
 jobs:
   terraform:
-    name: 'Terraform CI'
     runs-on: ubuntu-latest
-
-    defaults:
-      run:
-        working-directory: ./project-1-terraform-elastic-infrastructure
-    
     steps:
-    - name: Checkout
-      uses: actions/checkout@v4
+      - name: Checkout Code
+        uses: actions/checkout@v4
 
-    - name: Setup Terraform
-      uses: hashicorp/setup-terraform@v3
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          # Paste the ARN you got from the bootstrap output here
+          role-to-assume: arn:aws:iam::696715200275:role/GitHubActionsRole
+          aws-region: us-east-2
 
-    - name: Terraform Format
-      run: terraform fmt -check
+      - name: Terraform Init
+        run: terraform init
 
-    - name: Terraform Init
-      run: terraform init
-
-    - name: Terraform Validate
-      run: terraform validate
-
-    - name: Terraform Plan
-     
-      env:
-        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        TF_VAR_alert_email: ${{ secrets.TF_VAR_alert_email }}
-        TF_VAR_allowed_ip: ${{ secrets.TF_VAR_allowed_ip }}
-      run: terraform plan -input=false
+      - name: Terraform Plan
+        run: terraform plan
