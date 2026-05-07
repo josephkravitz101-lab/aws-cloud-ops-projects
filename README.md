@@ -12,9 +12,13 @@ All projects focus on practical skills relevant to Cloud Ops roles: monitoring &
 
 ## Projects
 
-### Terraform Projects (Infrastructure as Code)
-### Project 1: Terraform Elastic Infrastructure & Auto Scaling
-Engineered a resilient web infrastructure using Terraform, focusing on **automated elasticity**. Replaced static monitoring with **Target Tracking Scaling Policies** to maintain 50% average CPU utilization, optimizing costs and reliability. Implemented a robust GitHub Actions CI/CD pipeline to automate code validation, style enforcement, and infrastructure planning, ensuring production-ready standards.
+### Project 1: Elastic AWS Infrastructure & Secure CI/CD
+Engineered a resilient, production-ready web infrastructure using Terraform, centered on **automated elasticity** and **zero-trust security**. 
+
+* **Key Achievement:** Migrated from local state to a professional **S3 Remote Backend** with **DynamoDB State Locking**, ensuring infrastructure consistency and concurrency control.
+* **Security & DevOps:** Implemented **OIDC (OpenID Connect)** for keyless authentication within a GitHub Actions pipeline, eliminating the need for long-lived AWS credentials.
+* **Elasticity:** Configured **Target Tracking Scaling Policies** to maintain 50% CPU utilization, automatically optimizing costs and fleet health.
+* **CI/CD:** Automated a multi-stage pipeline for linting (`fmt`), validation, and infrastructure planning (`plan`) to enforce high code quality standards.
 - [View Project →](./project-1-terraform-elastic-infrastructure)
 
 ### Console-Based Projects (Foundational AWS Skills)
