@@ -29,11 +29,12 @@ This diagram illustrates the complete, integrated ecosystem of this project, com
 ---
 
 ## 🛠 Technology Stack
-- **Cloud Provider:** AWS (VPC, EC2, ASG, S3, DynamoDB, IAM)
+- **Cloud Provider:** AWS (VPC, EC2, ASG, S3, DynamoDB, IAM, CloudWatch, SNS)
 - **IaC:** Terraform (Modularized)
 - **CI/CD:** GitHub Actions
 - **Security:** OIDC Identity Federation
-- **Observability:** CloudWatch Metrics & Alarms
+- **Observability:** CloudWatch Metrics & Alarms (including high CPU utilization alerts)
+
 
 ---
 
@@ -48,6 +49,7 @@ Every `push` to `main` triggers a GitHub Actions workflow that executes in a cle
 
 ## 💡 Operational Highlights
 * **Elasticity:** Implemented **Target Tracking Scaling Policies** to maintain average CPU utilization at 50%, ensuring the fleet scales out for traffic and scales in for cost savings.
+* **Proactive Monitoring:** Added **CloudWatch Metric Alarm** (`cpu-utilization-high`) that triggers when **GroupAverageCPUUtilization** exceeds **70%** for 2 evaluation periods (10 minutes). The alarm sends notifications via **SNS** topic.
 * **Modular Design:** Code is split into logical modules (Network, Compute) for reusability and easier maintenance.
 * **Directory Logic:** Utilizes `working-directory` configurations in CI/CD to handle multi-folder project structures effectively.
 
@@ -56,19 +58,28 @@ Every `push` to `main` triggers a GitHub Actions workflow that executes in a cle
 ## 📸 Project Highlights
 ### 1. Keyless Authentication (OIDC)
 ![GitHub Actions OIDC Handshake](screenshots/01-oidc-iam-role.png)
+
 *IAM Role configured with a Trust Relationship to GitHub Actions.*
 
 ### 2. Remote State in S3
 ![S3 State Storage](screenshots/02-s3-backend-state.png)
+
 *Proof of S3 backend showing the stored .tfstate file.*
 
 ### 3. Successful CI/CD Execution
 ![GitHub Actions Success](screenshots/03-pipeline-success.png)
+
 *The green pipeline showing successful Init, Plan, and OIDC Authentication.*
 
 ### 4. Auto Scaling in Action
 ![ASG Scaling History](screenshots/04-scaling-activity.png)
+
 *CloudWatch-driven scaling activity maintaining fleet health.*
+
+### 5. CloudWatch High CPU Alarm
+![CloudWatch](screenshots/05-cloudwatch-cpu-alarm.png)
+
+*CloudWatch alarm 'cpu-utilization-high' configured to notify via SNS when average CPU utilization in the Auto Scaling Group exceeds 70%.*
 
 ---
 
