@@ -5,6 +5,8 @@ on:
     branches:
       - main
   pull_request:
+    branches:
+      - main
 
 permissions:
   id-token: write # Required for requesting the JWT from AWS
@@ -48,6 +50,7 @@ jobs:
         id: validate
         run: terraform validate -no-color
 
+        # Generates a speculative preview of infrastructure changes for both PRs and merge
       - name: Terraform Plan
         id: plan
         # We pass the secrets into Terraform using the TF_VAR_ prefix
@@ -55,11 +58,3 @@ jobs:
           TF_VAR_alert_email: ${{ secrets.ALERT_EMAIL }}
           TF_VAR_allowed_ip: ${{ secrets.ALLOWED_IP }}
         run: terraform plan -no-color
-
-      - name: Terraform Apply
-        # Only runs when code is merged into the main branch
-        if: github.ref == 'refs/heads/main' && github.event_name == 'push'
-        env:
-          TF_VAR_alert_email: ${{ secrets.ALERT_EMAIL }}
-          TF_VAR_allowed_ip: ${{ secrets.ALLOWED_IP }}
-        run: terraform apply -auto-approve -input=false
