@@ -55,6 +55,24 @@ Every `push` to `main` triggers a GitHub Actions workflow that executes in a cle
 
 ---
 
+### 🛡️ Local Pre-Flight Validation Framework
+To optimize developer velocity and ensure zero-fault commits, the repository includes a native Bash utility script located at `scripts/validate-infra.sh`. 
+
+Instead of waiting for remote CI/CD runners to spin up and fail on minor syntax errors or formatting slips, developers can execute this local "sanity check" inside their environment before code ever leaves their machine. 
+
+The utility automates:
+1. **Dependency Verification:** Dynamically checks the system's `$PATH` to ensure the correct version of the Terraform CLI is active.
+2. **Deterministic Code Styling:** Executes `terraform fmt -check -recursive` to strictly validate configuration file alignment against HashiCorp layout standards.
+3. **Compilation & Grammar Scan:** Runs a swift initialization (`-backend=false`) and runs `terraform validate` to catch references to missing variables, block issues, or typos.
+4. **Credential Audit (Secret Leak Protection):** Uses a recursive regex scan to audit code patterns for raw `access_key` or `secret_key` declarations, acting as an extra layer of defense to preserve our keyless OIDC posture.
+
+**To run the validation locally:**
+```bash
+chmod +x scripts/validate-infra.sh
+./scripts/validate-infra.sh
+
+---
+
 ## 📸 Project Highlights
 ### 1. Keyless Authentication (OIDC)
 ![GitHub Actions OIDC Handshake](screenshots/01-oidc-iam-role.png)
@@ -92,7 +110,7 @@ Every `push` to `main` triggers a GitHub Actions workflow that executes in a cle
 3.  **Update Workflow:**
     * Ensure the `role-to-assume` in `.github/workflows/terraform.yml` matches the ARN provided by the bootstrap output.
 4.  **Push to Main:**
-    * GitHub Actions will take over, validate the code, and deploy the infrastructure.
+    * Push your feature branch or open a Pull Request to `main`. GitHub Actions will automatically take over, run formatting audits, syntactical checks, and output a detailed `terraform plan` to preview the pending AWS architectural changes.
 
 ---
 
