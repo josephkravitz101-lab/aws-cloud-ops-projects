@@ -67,9 +67,10 @@ The utility automates:
 4. **Credential Audit (Secret Leak Protection):** Uses a recursive regex scan to audit code patterns for raw `access_key` or `secret_key` declarations, acting as an extra layer of defense to preserve our keyless OIDC posture.
 
 **To run the validation locally:**
-#```bash
-# chmod +x scripts/validate-infra.sh
-# ./scripts/validate-infra.sh
+```bash
+chmod +x scripts/validate-infra.sh
+./scripts/validate-infra.sh
+```
 
 ---
 
