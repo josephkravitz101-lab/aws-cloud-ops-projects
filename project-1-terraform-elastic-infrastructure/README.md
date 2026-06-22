@@ -12,7 +12,14 @@ This project provisions a hardened, high-availability AWS environment using **In
 - Fully containerized with Docker
 - Automatic build & push via GitHub Actions on every commit
 - EC2 instances automatically pull and run the latest container via `user_data` bootstrap script
-- **Live Demo**: [http://3.129.9.182](http://3.129.9.182)
+
+![Dockerized Bash Web App Running on AWS](screenshots/06-bash-web-app-live.png)
+
+*Screenshot of the live Bash web application running on the Auto Scaling Group.*
+
+---
+
+## 🏗 Unified CI/CD (Plan Only) & Secure Infrastructure Architecture
 
 ---
 
@@ -118,9 +125,17 @@ This demonstrates a complete **Infrastructure as Code + Application Deployment**
 ---
 
 ## 🚀 How to Deploy
+1.  **Bootstrap the Backend:**
+    * Navigate to the `/bootstrap` folder and run `terraform apply`.
+    * This creates the S3 Bucket, DynamoDB Table, and OIDC IAM Role.
+2.  **Configure GitHub Secrets:**
+    * Add `ALLOWED_IP` (e.g., `1.2.3.4/32`) and `ALERT_EMAIL` to your repository secrets.
+3.  **Update Workflow:**
+    * Ensure the `role-to-assume` in `.github/workflows/terraform.yml` matches the ARN provided by the bootstrap output.
+4.  **Push to Main:**
+    * Push your feature branch or open a Pull Request to `main`. GitHub Actions will automatically take over, run formatting audits, syntactical checks, and output a detailed `terraform plan` to preview the pending AWS architectural changes.
 
-1. **Bootstrap the Backend:**
-   ```bash
-   cd bootstrap
-   terraform init
-   terraform apply
+---
+
+## 💡 Why I Built This
+This project was built to master the transition from manual cloud configuration to **Production DevOps**. By implementing OIDC and Remote State, I solved the two biggest challenges in team-based infrastructure: **Security** and **Concurrency**. It demonstrates my ability to build resilient, self-managing, and secure cloud environments.
