@@ -21,7 +21,7 @@ jobs:
 
     defaults:
       run:
-        working-directory: ./project-1-terraform-elastic-infrastructure
+        working-directory: ./project-1-terraform-dockerized-app
 
     steps:
       - name: Checkout code
@@ -68,7 +68,7 @@ jobs:
     needs: terraform
     defaults:
       run:
-        working-directory: ./project-1-terraform-elastic-infrastructure
+        working-directory: ./project-1-terraform-dockerized-app
 
     steps:
       - name: Checkout code
@@ -91,7 +91,7 @@ jobs:
       - name: Build and Push Docker Image
         uses: docker/build-push-action@v6
         with:
-          context: ./project-1-terraform-elastic-infrastructure/app
+          context: ./project-1-terraform-dockerized-app/app
           push: true
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/bash-web-app:latest
           cache-from: type=gha

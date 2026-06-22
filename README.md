@@ -1,8 +1,8 @@
 # AWS Cloud Ops Projects
 
-This repository contains hands-on AWS projects I built while transitioning from Ad Operations into **Cloud Operations Engineering**. 
+This repository contains hands-on AWS projects I built while transitioning from Ad Operations into **Cloud Operations / DevOps Engineering**.
 
-All projects focus on practical skills relevant to Cloud Ops roles: monitoring & alerting, cost optimization, secure networking, and infrastructure management.
+All projects focus on practical, production-relevant skills: Infrastructure as Code, CI/CD, containerization, monitoring, and secure networking.
 
 ## AWS Certification
 
@@ -12,14 +12,17 @@ All projects focus on practical skills relevant to Cloud Ops roles: monitoring &
 
 ## Projects
 
-### Project 1: Elastic AWS Infrastructure & Secure CI/CD
-Engineered a resilient, production-ready web infrastructure using Terraform, centered on **automated elasticity** and **zero-trust security**. 
+### Project 1: Terraform Elastic Infrastructure with Dockerized Application & CI/CD
+**Most Comprehensive Project**
 
-* **Key Achievement:** Migrated from local state to a professional **S3 Remote Backend** with **DynamoDB State Locking**, ensuring infrastructure consistency and concurrency control.
-* **Security & DevOps:** Implemented **OIDC (OpenID Connect)** for keyless authentication within a GitHub Actions pipeline, eliminating the need for long-lived AWS credentials.
-* **Elasticity:** Configured **Target Tracking Scaling Policies** to maintain 50% CPU utilization, automatically optimizing costs and fleet health.
-* **CI/CD:** Automated a multi-stage pipeline for linting (`fmt`), validation, and infrastructure planning (`plan`) to enforce high code quality standards.
-- [View Project →](./project-1-terraform-elastic-infrastructure)
+Engineered a complete, production-ready environment featuring:
+- Terraform IaC with Auto Scaling Group + Target Tracking Policies
+- **Dockerized Bash web application** (lightweight server using netcat)
+- Full CI/CD pipeline with GitHub Actions (Terraform Plan + Docker Build & Push)
+- Secure keyless authentication using **OIDC**
+- S3 Remote Backend + DynamoDB State Locking
+- CloudWatch monitoring + SNS alerts
+- [View Project →](./project-1-terraform-dockerized-app)
 
 ### Console-Based Projects (Foundational AWS Skills)
 ### Project 2: S3 Cost Optimization with Lifecycle Rules & Budgets
@@ -35,17 +38,19 @@ Engineered a resilient, production-ready web infrastructure using Terraform, cen
 - Launched EC2 instances in both public and private subnets
 - [View Project →](./project-3-secure-vpc-architecture)
 
-## Technologies Used Across Projects
-- Amazon EC2, S3, VPC, CloudWatch, SNS, Budgets, Lifecycle Rules
-- Security Groups, Route Tables, S3 Gateway VPC Endpoints
+## Technologies Used
+
+- **IaC & Orchestration:** Terraform, GitHub Actions
+- **Containerization:** Docker
+- **Cloud:** AWS (EC2, ASG, VPC, S3, CloudWatch, SNS, IAM)
+- **Security:** OIDC, Security Groups
+- **Observability:** CloudWatch Alarms
 
 ## About Me
 - **AWS Certified Cloud Practitioner (CLF-C02)** – April 2026
-- 4+ years as an Ad Operations Manager (platform monitoring, troubleshooting, optimization at scale)
-- Former Front-End Web Developer with strong technical foundation
+- Former Ad Operations Manager with strong experience in platform monitoring, troubleshooting, and optimization at scale
+- Transitioning into Cloud Operations / DevOps roles in NYC
 
-Actively building Cloud Operations skills through hands-on AWS projects and transitioning into Cloud Ops / Infrastructure Operations roles in NYC.
+---
 
-
-
-Last updated: April 2026
+**Last updated:** June 2026
