@@ -45,6 +45,8 @@ module "compute" {
   alert_email   = var.alert_email
   common_tags   = local.common_tags
   instance_type = "t3.micro"
+  # NEW - Pass Docker Hub username
+  dockerhub_username = var.dockerhub_username
 }
 
 # =============================================

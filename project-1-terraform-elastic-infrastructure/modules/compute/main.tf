@@ -10,6 +10,15 @@ resource "aws_security_group" "allow_ssh" {
     cidr_blocks = [var.allowed_ip]
   }
 
+  # HTTP Access for the web app
+  ingress {
+    from_port   = 80
+    to_port     = 80
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+    description = "Allow HTTP traffic to Bash web app"
+  }
+
   egress {
     from_port   = 0
     to_port     = 0
@@ -38,6 +47,11 @@ resource "aws_launch_template" "web_template" {
       Name = "web-server-fleet"
     }
   }
+
+  # USER DATA - Bootstrap script that runs on every new EC2 instance
+  user_data = base64encode(templatefile("${path.module}/user_data.sh", {
+    dockerhub_username = var.dockerhub_username
+  }))
 }
 
 # Auto Scaling Group
@@ -53,6 +67,7 @@ resource "aws_autoscaling_group" "web_asg" {
   }
 }
 
+# Auto Scaling Policy (CPU Target Tracking)
 resource "aws_autoscaling_policy" "cpu_target_tracking" {
   name                   = "cpu-target-tracking-policy"
   autoscaling_group_name = aws_autoscaling_group.web_asg.name
@@ -62,13 +77,11 @@ resource "aws_autoscaling_policy" "cpu_target_tracking" {
     predefined_metric_specification {
       predefined_metric_type = "ASGAverageCPUUtilization"
     }
-
-    # This keeps your fleet CPU average at 50%
     target_value = 50.0
   }
 }
 
-# SNS Topic
+# SNS Topic + Subscription + CloudWatch Alarm (unchanged)
 resource "aws_sns_topic" "cpu_alarm_topic" {
   name = "cpu-alarm-topic"
 }
@@ -79,7 +92,6 @@ resource "aws_sns_topic_subscription" "email_subscription" {
   endpoint  = var.alert_email
 }
 
-# CloudWatch Alarm
 resource "aws_cloudwatch_metric_alarm" "cpu_high" {
   alarm_name          = "cpu-utilization-high"
   comparison_operator = "GreaterThanThreshold"
@@ -90,12 +102,9 @@ resource "aws_cloudwatch_metric_alarm" "cpu_high" {
   statistic           = "Average"
   threshold           = 70
 
-  alarm_actions = [
-    aws_sns_topic.cpu_alarm_topic.arn
-  ]
+  alarm_actions = [aws_sns_topic.cpu_alarm_topic.arn]
 
   dimensions = {
     AutoScalingGroupName = aws_autoscaling_group.web_asg.name
   }
 }
-

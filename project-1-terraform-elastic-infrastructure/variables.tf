@@ -7,3 +7,9 @@ variable "allowed_ip" {
   description = "Your public IP address for secure SSH access (CIDR block format e.g., X.X.X.X/32)"
   type        = string
 }
+
+# Docker Hub Configuration
+variable "dockerhub_username" {
+  description = "Docker Hub username for pulling the container image"
+  type        = string
+}

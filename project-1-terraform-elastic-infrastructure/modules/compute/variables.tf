@@ -13,3 +13,9 @@ variable "instance_type" {
   default = "t3.micro"
   type    = string
 }
+
+# Docker Hub Configuration
+variable "dockerhub_username" {
+  description = "Docker Hub username to pull the bash-web-app image"
+  type        = string
+}

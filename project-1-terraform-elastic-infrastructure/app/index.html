@@ -3,13 +3,74 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Bash Docker App</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bash Web App | Terraform + Docker Demo</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+            padding: 50px;
+            margin: 0;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+        }
+
+        .badge {
+            display: inline-block;
+            background: #4CAF50;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 50px;
+            font-size: 1rem;
+            margin: 15px 0;
+        }
+
+        p {
+            font-size: 1.3rem;
+            line-height: 1.6;
+            max-width: 600px;
+            margin: 20px auto;
+        }
+
+        .footer {
+            margin-top: 60px;
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+    </style>
 </head>
 
 <body>
-    <h1>Hello from a Bash Web Server! 🚀</h1>
-    <p>This web app is running entirely with Bash + netcat inside Docker.</p>
-    <p>Deployed on my Terraform ASG via GitHub Actions.</p>
+    <div class="container">
+        <h1>🚀 Hello from Bash!</h1>
+
+        <div class="badge">Running in Docker • Deployed via Terraform + GitHub Actions</div>
+
+        <p>
+            This is a lightweight web application written entirely in Bash,
+            containerized with Docker, and automatically deployed on an
+            <strong>AWS Auto Scaling Group</strong>.
+        </p>
+
+        <p>
+            <strong>Tech Stack:</strong> Bash + netcat + Docker + Terraform + GitHub Actions + AWS
+        </p>
+
+        <div class="footer">
+            <p>Built as a portfolio project by Joseph Kravitz</p>
+        </div>
+    </div>
 </body>
 
 </html>
