@@ -95,9 +95,15 @@ chmod +x scripts/validate-infra.sh
 *Proof of S3 backend showing the stored .tfstate file.*
 
 ### 3. Successful CI/CD Execution
+
 ![GitHub Actions Success](screenshots/03-pipeline-success.png)
 
-*The green pipeline showing successful Init, Plan, and OIDC Authentication.*
+*The pipeline now successfully performs:*
+- Terraform Format, Init, Validate, and Plan
+- Docker Build & Push of the Bash web application to Docker Hub
+- Secure OIDC authentication with AWS
+
+This demonstrates a complete **Infrastructure as Code + Application Deployment** pipeline.
 
 ### 4. Auto Scaling in Action
 ![ASG Scaling History](screenshots/04-scaling-activity.png)
